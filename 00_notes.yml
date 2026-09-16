@@ -79,11 +79,20 @@ root:
     obj5: value5
 
 #anchor or alias
+# anchor allows to craete a reusable component and the syntax is &base
+# {
+#   "base_config": {
+#     "ram": "6_GB",
+#     "rom": "12 mb",
+#     "clock_speed": "3MHz"
+#   }
+# }
 base_config: &base
   ram: 6_GB
   rom: 12 mb
   clock_speed: 3MHz
 
+# here we are reusing the base
 serverConfig:
   <<: *base
   storage: 512_GB
@@ -103,7 +112,11 @@ serverConfig2:
 # force str or int
 # this forces the thing after that to be string
 zip_code: !!str value
+
+# this will make it parse as int
 numbe2r: !!int 76
+
+# here it is a set with no equivalent value
 set: !!set
   ? value1
   ? value2
