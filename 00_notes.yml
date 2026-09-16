@@ -1,0 +1,110 @@
+# you can use both yml,and yaml as intentation
+key : value
+
+# space matters a lot
+# there is no diffrence in string and number
+# datatypes
+string : value
+bestPractice: "use quotes single or double"
+number : 5
+
+# you have use two spaces not tab which is 4 spaces
+# 4 spaces is lethal it will cause a lot on error
+list:
+  key1: value1
+  key2: value2 
+
+multiLineString: |
+  value1
+  value2
+  value3
+
+anotherWay: >
+  value1
+  value2
+  value3
+
+# numbers
+normal : 5
+n2: 5e+2
+n3: 0xFFFFFF
+
+boolean: true
+boolean2: false
+boolean3: on
+boolean4: off
+boolean5: yes
+
+# null
+
+nullValue: null
+nullValue2: ~
+
+timeStamp: 2025-01-20 08:30:00
+
+# array
+arrayFormat:
+  - hhhh
+  - value
+  - true
+  - 5
+anotherWay2: [4,5,6]
+
+nestedList:
+  - name: config1
+    config:
+      - ram
+      - rom
+  - name: config2
+    config:
+      - ram
+      - rom
+
+# {
+#   "nestedList": [
+#     { "name": "config1", "config": ["ram", "rom"] },
+#     { "name": "config2", "config": ["ram", "rom"] }
+#   ]
+# }
+
+# dictionary
+root:
+  key1:
+    obj1: value1
+    obj2: value2
+    onbj7:
+      value3: value4
+  key2:
+    obj4: value4
+    obj5: value5
+
+#anchor or alias
+base_config: &base
+  ram: 6_GB
+  rom: 12 mb
+  clock_speed: 3MHz
+
+serverConfig:
+  <<: *base
+  storage: 512_GB
+  
+# behind the scene
+# serverConfig:
+#   ram: 6_GB
+#   rom: 12 mb
+#    clock_speed: 3MHz
+#   storage: 512_GB
+
+serverConfig2:
+  <<: *base
+  screen: big 
+
+
+# force str or int
+# this forces the thing after that to be string
+zip_code: !!str value
+numbe2r: !!int 76
+set: !!set
+  ? value1
+  ? value2
+  ? value3
